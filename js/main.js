@@ -53,7 +53,7 @@ var getInvalidCapacityAlert = function() {
 var valueChange = function () {
   selectedOptionRoomNumber = parseInt(roomNumbers[roomNumbers.options.selectedIndex].value, 10);
   selectedOptionCapacity = parseInt(capacityPersons[capacityPersons.options.selectedIndex].value, 10);
-  
+
   getInvalidCapacityAlert();
 };
 
@@ -199,7 +199,7 @@ var renderFragmentElement = function (createSample) {
 
 var createPinCards = function (pinCards) {
   var similarCard = templateCard.cloneNode(true);
-  
+
   similarCard.querySelector('.popup__title').textContent = pinCards.offer.title;
   similarCard.querySelector('.popup__text--address').textContent = pinCards.offer.address;
   similarCard.querySelector('.popup__text--price').textContent = (pinCards.offer.price) + '/ночь';
@@ -207,10 +207,10 @@ var createPinCards = function (pinCards) {
   similarCard.querySelector('.popup__text--capacity').textContent = (pinCards.offer.rooms) + ' комнаты для ' + (pinCards.offer.guests);
   similarCard.querySelector('.popup__text--time').textContent = 'Заезд после ' + (pinCards.offer.checkin) + ', выезд до ' + (pinCards.offer.checkout);
   similarCard.querySelector('.popup__description').textContent = pinCards.offer.description;
-  
+
   var addFeatures = function () {
     similarCard.querySelector('.popup__features').innerHTML = '';
-    
+
     for (var i = 0; i < pinCards.offer.features.length; i++) {
       var listItemFeatures = document.createElement('li');
       listItemFeatures.classList.add('popup__feature');
@@ -218,10 +218,10 @@ var createPinCards = function (pinCards) {
       similarCard.querySelector('.popup__features').appendChild(listItemFeatures);
     }
   };
-  
+
   var addPhotos = function () {
     similarCard.querySelector('.popup__photos').innerHTML = '';
-    
+
     for (var i = 0; i < pinCards.offer.photos.length; i++) {
       var imgPhotos = document.createElement('img');
       imgPhotos.classList.add('popup__photo');
@@ -229,15 +229,16 @@ var createPinCards = function (pinCards) {
       imgPhotos.setAttribute('alt', 'Фотография жилья');
       imgPhotos.setAttribute('width', '45');
       imgPhotos.setAttribute('height', '40');
-      
+
       similarCard.querySelector('.popup__photos').appendChild(imgPhotos);
     };
   };
-  
+
   addFeatures();
   addPhotos();
-  
+
   return similarCard;
 };
 
 getInvalidCapacityAlert();
+
