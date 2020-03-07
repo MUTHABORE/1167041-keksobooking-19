@@ -162,7 +162,7 @@ var createSimilarAds = function () {
           checkin: ADS_CHECKIN[getRandomInteger(0, ADS_CHECKIN.length)],
           checkout: ADS_CHECKOUT[getRandomInteger(0, ADS_CHECKOUT.length)],
           features: getArrayShorter(ADS_FEATURES),
-          description: 'строка с описанием',
+          description: getAdDescription,
           photos: getArrayShorter(ADS_PHOTOS)
         },
         'location': {
