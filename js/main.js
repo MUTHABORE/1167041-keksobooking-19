@@ -27,7 +27,7 @@ var GUESTS_VALIDITY_INSTRUCTION = {
   3: [3]
 };
 
-var getCapacityValidity = function (quantityGuest) {
+var isValidCapacity = function (quantityGuest) {
   var arrCapacity = GUESTS_VALIDITY_INSTRUCTION[quantityGuest];
 
   var validateCapacity = false;
@@ -42,10 +42,8 @@ var getCapacityValidity = function (quantityGuest) {
   return validateCapacity;
 };
 
-getCapacityValidity(selectedOptionCapacity);
-
 var getInvalidCapacityAlert = function () {
-  if (!getCapacityValidity(selectedOptionCapacity)) {
+  if (!isValidCapacity(selectedOptionCapacity)) {
     capacityPersons.setCustomValidity('Количесво мест не соответсвует количеству комнат');
   } else {
     capacityPersons.setCustomValidity('');
@@ -112,7 +110,7 @@ var ads = [];
 var similarAds = 8;
 
 var ADS_PRICE = ['Любая', '10000 - 50000₽', 'От 10000₽', 'До 50000₽'];
-var ADS_TYPES = ['palace', 'flat', 'house', 'bungalo'];
+var ADS_TYPES = ['PALACE', 'FLAT', 'HOUSE', 'BUNGALO'];
 var ADS_ROOMS = ['Любое число комнат', 'Одна комната', 'Две комнаты', 'Три комнаты'];
 var ADS_GUESTS = ['Любое число гостей', 'Два гостя', 'Один гость', 'Не для гостей'];
 var ADS_CHECKIN = ['12:00', '13:00', '14:00'];
@@ -127,10 +125,10 @@ var PIN_CORR_X = -25;
 var PIN_CORR_Y = -70;
 
 var TYPE_TRANSLATE = {
-  palace: 'Дворец',
-  flat: 'Квартира',
-  house: 'Дом',
-  bungalo: 'Бунгало'
+  PALACE: 'Дворец',
+  FLAT: 'Квартира',
+  HOUSE: 'Дом',
+  BUNGALO: 'Бунгало'
 };
 
 var getArrayShorter = function (array) {
