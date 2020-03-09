@@ -1,5 +1,6 @@
 'use strict';
 
+
 var KEY_ENTER = 13;
 var LEFT_CLICK = 1;
 var map = document.querySelector('.map');
