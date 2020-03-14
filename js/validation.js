@@ -1,9 +1,9 @@
 'use strict';
 
-(function(){
+(function () {
   var roomNumbers = document.querySelector('#room_number');
   var capacityPersons = document.querySelector('#capacity');
-  var housingSelect = document.querySelector('#type');
+  // var housingSelect = document.querySelector('#type');
   var inputPrice = document.querySelector('#price');
   var selectType = document.querySelector('#type');
   var inputHousingType = selectType[selectType.options.selectedIndex].value;
@@ -76,9 +76,9 @@
   var syncTimeIn = function () {
     timeIn.selectedIndex = timeOut.selectedIndex;
   };
-  
+
   getInvalidCapacityAlert();
-  
+
   window.validation = {
     capacityPersons: capacityPersons,
     valueChange: valueChange,
@@ -91,4 +91,4 @@
     syncTimeOut: syncTimeOut,
     syncTimeIn: syncTimeIn,
   };
-}())
+})();

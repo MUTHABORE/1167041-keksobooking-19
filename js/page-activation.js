@@ -35,4 +35,4 @@
 
   window.map.mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
   window.map.mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
-}())
+})();

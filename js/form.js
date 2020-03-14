@@ -1,8 +1,8 @@
 'use strict';
 
-(function(){
+(function () {
   var adFieldsets = document.querySelector('.ad-form');
-  
+
   var setCoords = function () {
     window.map.pinMainLeft = window.map.mapPinMain.style.left;
     window.map.pinMainTop = window.map.mapPinMain.style.top;
@@ -26,7 +26,7 @@
 
   setDisabledAttr(adFieldsets);
   setDisabledAttr(window.map.mapFilters);
-  
+
   window.form = {
     adFieldsets: adFieldsets,
     removeDisabledAttr: removeDisabledAttr,

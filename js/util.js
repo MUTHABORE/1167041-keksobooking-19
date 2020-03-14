@@ -26,7 +26,7 @@
     }
     return shortArray;
   };
-  
+
   window.util = {
     KEY_ESC: KEY_ESC,
     KEY_ENTER: KEY_ENTER,
@@ -34,5 +34,5 @@
     getRandomInteger: getRandomInteger,
     renderFragmentElement: renderFragmentElement,
     getArrayShorter: getArrayShorter
-  }
-}())
+  };
+})();
