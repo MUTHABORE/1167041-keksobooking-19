@@ -3,7 +3,6 @@
 (function () {
   var roomNumbers = document.querySelector('#room_number');
   var capacityPersons = document.querySelector('#capacity');
-  // var housingSelect = document.querySelector('#type');
   var inputPrice = document.querySelector('#price');
   var selectType = document.querySelector('#type');
   var inputHousingType = selectType[selectType.options.selectedIndex].value;
@@ -80,9 +79,7 @@
   getInvalidCapacityAlert();
 
   window.validation = {
-    capacityPersons: capacityPersons,
     valueChange: valueChange,
-    roomNumbers: roomNumbers,
     setMinPrice: setMinPrice,
     selectType: selectType,
     onMinPriceChange: onMinPriceChange,

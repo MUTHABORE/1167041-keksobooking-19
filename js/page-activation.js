@@ -1,23 +1,31 @@
 'use strict';
 
 (function () {
+  var mapPinMain = document.querySelector('.map__pin--main');
+  var map = document.querySelector('.map');
+
   var pageActivation = function () {
+    var mapFilters = document.querySelector('.map__filters');
+    var adFieldsets = document.querySelector('.ad-form');
+    var roomNumbers = document.querySelector('#room_number');
+    var capacityPersons = document.querySelector('#capacity');
+    var selectType = document.querySelector('#type');
     window.form.setCoords();
-    window.map.map.classList.remove('map--faded');
-    window.form.adFieldsets.classList.remove('ad-form--disabled');
-    window.form.removeDisabledAttr(window.form.adFieldsets);
-    window.form.removeDisabledAttr(window.map.mapFilters);
-    window.validation.capacityPersons.addEventListener('change', window.validation.valueChange);
-    window.validation.roomNumbers.addEventListener('change', window.validation.valueChange);
-    window.util.renderFragmentElement(window.map.createPinsAds);
-    window.util.renderFragmentElement(window.map.createPinCards);
+    map.classList.remove('map--faded');
+    adFieldsets.classList.remove('ad-form--disabled');
+    window.form.removeDisabledAttr(adFieldsets);
+    window.form.removeDisabledAttr(mapFilters);
+    capacityPersons.addEventListener('change', window.validation.valueChange);
+    roomNumbers.addEventListener('change', window.validation.valueChange);
+    window.util.renderFragmentElement(window.data.createPinsAds);
+    window.util.renderFragmentElement(window.data.createPinCards);
     window.map.toggleCards();
     window.validation.setMinPrice();
-    window.validation.selectType.addEventListener('change', window.validation.onMinPriceChange);
+    selectType.addEventListener('change', window.validation.onMinPriceChange);
     window.validation.timeIn.addEventListener('change', window.validation.syncTimeOut);
     window.validation.timeOut.addEventListener('change', window.validation.syncTimeIn);
-    window.map.mapPinMain.removeEventListener('mousedown', mainButtonMouseActivation);
-    window.map.mapPinMain.removeEventListener('keydown', mainButtonKeyboardActivation);
+    mapPinMain.removeEventListener('mousedown', mainButtonMouseActivation);
+    mapPinMain.removeEventListener('keydown', mainButtonKeyboardActivation);
     window.map.closePinCard();
   };
 
@@ -33,6 +41,6 @@
     }
   };
 
-  window.map.mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
-  window.map.mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
+  mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
+  mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
 })();

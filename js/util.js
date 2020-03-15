@@ -4,6 +4,7 @@
   var KEY_ESC = 27;
   var KEY_ENTER = 13;
   var LEFT_CLICK = 1;
+  var similarAd = document.querySelector('.map__pins');
 
   var getRandomInteger = function (min, max) {
     var randomNumber = Math.floor(min + Math.random() * (max - min));
@@ -13,10 +14,10 @@
   var renderFragmentElement = function (createSample) {
     var fragment = document.createDocumentFragment();
 
-    for (var i = 0; i < window.map.ads.length; i++) {
-      fragment.appendChild(createSample(window.map.ads[i]));
+    for (var i = 0; i < window.data.ads.length; i++) {
+      fragment.appendChild(createSample(window.data.ads[i]));
     }
-    window.map.similarAd.appendChild(fragment);
+    similarAd.appendChild(fragment);
   };
 
   var getArrayShorter = function (array) {

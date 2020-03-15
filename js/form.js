@@ -2,15 +2,18 @@
 
 (function () {
   var adFieldsets = document.querySelector('.ad-form');
+  var mapFilters = document.querySelector('.map__filters');
+  var addressField = document.querySelector('#address');
+  var mapPinMain = document.querySelector('.map__pin--main');
 
   var setCoords = function () {
-    window.map.pinMainLeft = window.map.mapPinMain.style.left;
-    window.map.pinMainTop = window.map.mapPinMain.style.top;
-    window.map.addressField.setAttribute('value', (parseInt(window.map.pinMainLeft, 10) + window.map.PIN_MAIN_WIDTH_HALF) + ', ' + (parseInt(window.map.pinMainTop, 10) + window.map.PIN_MAIN_HEIGHT));
+    window.map.pinMainLeft = mapPinMain.style.left;
+    window.map.pinMainTop = mapPinMain.style.top;
+    addressField.setAttribute('value', (parseInt(window.map.pinMainLeft, 10) + window.map.PIN_MAIN_WIDTH_HALF) + ', ' + (parseInt(window.map.pinMainTop, 10) + window.map.PIN_MAIN_HEIGHT));
   };
 
-  window.map.addressField.setAttribute('readonly', '');
-  window.map.addressField.setAttribute('value', (parseInt(window.map.pinMainLeft, 10) + window.map.PIN_MAIN_WIDTH_HALF) + ', ' + (parseInt(window.map.pinMainTop, 10) + window.map.PIN_MAIN_HEIGHT_HALF));
+  addressField.setAttribute('readonly', '');
+  addressField.setAttribute('value', (parseInt(window.map.pinMainLeft, 10) + window.map.PIN_MAIN_WIDTH_HALF) + ', ' + (parseInt(window.map.pinMainTop, 10) + window.map.PIN_MAIN_HEIGHT_HALF));
 
   var setDisabledAttr = function (elem) {
     for (var i = 0; i < elem.length; i++) {
@@ -25,10 +28,9 @@
   };
 
   setDisabledAttr(adFieldsets);
-  setDisabledAttr(window.map.mapFilters);
+  setDisabledAttr(mapFilters);
 
   window.form = {
-    adFieldsets: adFieldsets,
     removeDisabledAttr: removeDisabledAttr,
     setCoords: setCoords
   };
