@@ -13,15 +13,15 @@
   var addressField = document.querySelector('#address');
 
   var formSubmit = function (evt) {
-      evt.preventDefault();
-      window.backend.upload(new FormData(form), window.backend.onError, siteReset);
-    };
+    evt.preventDefault();
+    window.backend.upload(new FormData(form), window.backend.onError, siteReset);
+  };
 
   var siteResetEnterKey = function (evt) {
-      if (evt.keyCode === window.util.KEY_ENTER) {
-        siteReset();
-      }
-    };
+    if (evt.keyCode === window.util.KEY_ENTER) {
+      siteReset();
+    }
+  };
 
   var pageActivation = function () {
     window.form.setCoords();
@@ -76,7 +76,7 @@
       var pinsAds = document.querySelectorAll('.map__pin--secondary');
       for (var i = 0; i < pinsAds.length; i++) {
         mapPins.removeChild(pinsAds[i]);
-      };
+      }
     };
 
     clearCards();

@@ -27,12 +27,6 @@
     }
   };
 
-//  var setDisabledAttr = function (elem) {
-//    for (var i = 0; i < elem.length; i++) {
-//      elem[i].setAttribute('disabled', '');
-//    }
-//  };
-
   setDisabledAttr(adFieldsets);
   setDisabledAttr(mapFilters);
 
