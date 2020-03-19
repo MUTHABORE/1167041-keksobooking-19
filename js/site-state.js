@@ -13,16 +13,15 @@
   var addressField = document.querySelector('#address');
 
   var formSubmit = function (evt) {
-    evt.preventDefault();
-    window.backend.upload(new FormData(form), window.backend.onError, siteReset);
-    form.removeEventListener('submit', formSubmit);
-  };
+      evt.preventDefault();
+      window.backend.upload(new FormData(form), window.backend.onError, siteReset);
+    };
 
   var siteResetEnterKey = function (evt) {
-    if (evt.keyCode === window.util.KEY_ENTER) {
-      siteReset();
-    }
-  };
+      if (evt.keyCode === window.util.KEY_ENTER) {
+        siteReset();
+      }
+    };
 
   var pageActivation = function () {
     window.form.setCoords();
@@ -77,7 +76,7 @@
       var pinsAds = document.querySelectorAll('.map__pin--secondary');
       for (var i = 0; i < pinsAds.length; i++) {
         mapPins.removeChild(pinsAds[i]);
-      }
+      };
     };
 
     clearCards();
@@ -86,12 +85,12 @@
     mapPinMain.style.top = 375 + 'px';
     window.form.setCoords();
     addressField.setAttribute('value', (parseInt(window.map.pinMainLeft, 10) + window.map.PIN_MAIN_WIDTH_HALF) + ', ' + (parseInt(window.map.pinMainTop, 10) + window.map.PIN_MAIN_HEIGHT_HALF));
-    mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
-    mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
 
     resetButton.removeEventListener('keydown', siteResetEnterKey);
     resetButton.removeEventListener('click', siteReset);
     form.removeEventListener('submit', formSubmit);
+    mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
+    mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
   };
 
   var mainButtonMouseActivation = function (evt) {
@@ -109,4 +108,3 @@
   mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
   mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
 })();
-

@@ -76,6 +76,7 @@
     timeIn.selectedIndex = timeOut.selectedIndex;
   };
 
+  onMinPriceChange();
   getInvalidCapacityAlert();
 
   window.validation = {

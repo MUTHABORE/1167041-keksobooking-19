@@ -27,11 +27,19 @@
     }
   };
 
+//  var setDisabledAttr = function (elem) {
+//    for (var i = 0; i < elem.length; i++) {
+//      elem[i].setAttribute('disabled', '');
+//    }
+//  };
+
   setDisabledAttr(adFieldsets);
   setDisabledAttr(mapFilters);
 
   window.form = {
+    setDisabledAttr: setDisabledAttr,
     removeDisabledAttr: removeDisabledAttr,
-    setCoords: setCoords
+    setCoords: setCoords,
+    addressField: addressField
   };
 })();
