@@ -14,8 +14,8 @@
   var renderFragmentElement = function (createSample) {
     var fragment = document.createDocumentFragment();
 
-    for (var i = 0; i < window.data.ads.length; i++) {
-      fragment.appendChild(createSample(window.data.ads[i]));
+    for (var i = 0; i < window.xhr.response.length; i++) {
+      fragment.appendChild(createSample(window.xhr.response[i]));
     }
     similarAd.appendChild(fragment);
   };

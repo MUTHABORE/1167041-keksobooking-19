@@ -31,7 +31,9 @@
   setDisabledAttr(mapFilters);
 
   window.form = {
+    setDisabledAttr: setDisabledAttr,
     removeDisabledAttr: removeDisabledAttr,
-    setCoords: setCoords
+    setCoords: setCoords,
+    addressField: addressField
   };
 })();
