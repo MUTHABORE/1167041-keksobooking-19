@@ -22,6 +22,22 @@
       siteReset();
     }
   };
+  var removeData = function () {
+    var adCards = document.querySelectorAll('.map__card');
+    var pinsAds = document.querySelectorAll('.map__pin--secondary');
+
+    adCards.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+    pinsAds.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  };
+
+  var renderAds = function () {
+    window.util.renderFragmentElement(window.data.createPinsAds);
+    window.util.renderFragmentElement(window.data.createPinCards);
+  };
 
   var pageActivation = function () {
     window.form.setCoords();
@@ -31,19 +47,21 @@
     window.form.removeDisabledAttr(mapFilters);
     capacityPersons.addEventListener('change', window.validation.valueChange);
     roomNumbers.addEventListener('change', window.validation.valueChange);
-    window.util.renderFragmentElement(window.data.createPinsAds);
-    window.util.renderFragmentElement(window.data.createPinCards);
-    window.map.toggleCards();
     window.validation.setMinPrice();
     selectType.addEventListener('change', window.validation.onMinPriceChange);
     window.validation.timeIn.addEventListener('change', window.validation.syncTimeOut);
     window.validation.timeOut.addEventListener('change', window.validation.syncTimeIn);
     mapPinMain.removeEventListener('mousedown', mainButtonMouseActivation);
     mapPinMain.removeEventListener('keydown', mainButtonKeyboardActivation);
-    window.map.closePinCard();
     formReset();
 
     form.addEventListener('submit', formSubmit);
+
+    if (window.backend.successStatus === true) {
+      renderAds();
+      window.map.closePinCard();
+      window.map.toggleCards();
+    }
   };
 
   var formReset = function () {
@@ -63,24 +81,8 @@
     window.form.setDisabledAttr(adFieldsets);
     window.form.setDisabledAttr(mapFilters);
     form.reset();
-    var mapPins = document.querySelector('.map__pins');
 
-    var clearCards = function () {
-      var adCards = document.querySelectorAll('.map__card');
-      for (var i = 0; i < adCards.length; i++) {
-        mapPins.removeChild(adCards[i]);
-      }
-    };
-
-    var clearAds = function () {
-      var pinsAds = document.querySelectorAll('.map__pin--secondary');
-      for (var i = 0; i < pinsAds.length; i++) {
-        mapPins.removeChild(pinsAds[i]);
-      }
-    };
-
-    clearCards();
-    clearAds();
+    removeData();
     mapPinMain.style.left = 570 + 'px';
     mapPinMain.style.top = 375 + 'px';
     window.form.setCoords();
@@ -107,4 +109,8 @@
 
   mapPinMain.addEventListener('mousedown', mainButtonMouseActivation);
   mapPinMain.addEventListener('keydown', mainButtonKeyboardActivation);
+
+  window.siteState = {
+    removeData: removeData
+  };
 })();
