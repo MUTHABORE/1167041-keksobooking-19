@@ -6,12 +6,9 @@
   var PIN_MAIN_HEIGHT = 65;
 
   var map = document.querySelector('.map');
-  // var mapFilters = document.querySelector('.map__filters');
   var mapPinMain = document.querySelector('.map__pin--main');
   var pinMainLeft = mapPinMain.style.left;
   var pinMainTop = mapPinMain.style.top;
-  // var similarAd = document.querySelector('.map__pins');
-  // var addressField = document.querySelector('#address');
 
   var toggleCards = function () {
     var cards = document.querySelectorAll('.map__card');
