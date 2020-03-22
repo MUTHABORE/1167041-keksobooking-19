@@ -9,7 +9,7 @@
   var selectedRoom = parseInt(roomNumbers[roomNumbers.options.selectedIndex].value, 10);
   var selectedCapacity = parseInt(capacityPersons[capacityPersons.options.selectedIndex].value, 10);
 
-  var GUESTS_VALIDITY_INSTRUCTION = {
+  var GuestsValidityInstruction = {
     0: [100],
     1: [1, 2, 3],
     2: [2, 3],
@@ -17,7 +17,7 @@
   };
 
   var isValidCapacity = function (quantityGuest) {
-    var arrCapacity = GUESTS_VALIDITY_INSTRUCTION[quantityGuest];
+    var arrCapacity = GuestsValidityInstruction[quantityGuest];
 
     var validateCapacity = false;
 
@@ -46,17 +46,17 @@
     getInvalidCapacityAlert();
   };
 
-  var PRICE_VALIDITY_INSTRUCTION = {
-    bungalo: 0,
-    flat: 1000,
-    house: 5000,
-    palace: 10000
+  var PriceValidityInstruction = {
+    BUNGALO: 0,
+    FLAT: 1000,
+    HOUSE: 5000,
+    PALACE: 10000
   };
 
 
   var setMinPrice = function () {
-    inputPrice.setAttribute('min', PRICE_VALIDITY_INSTRUCTION[inputHousingType]);
-    inputPrice.setAttribute('placeholder', PRICE_VALIDITY_INSTRUCTION[inputHousingType]);
+    inputPrice.setAttribute('min', PriceValidityInstruction[inputHousingType.toUpperCase()]);
+    inputPrice.setAttribute('placeholder', PriceValidityInstruction[inputHousingType.toUpperCase()]);
   };
 
   var onMinPriceChange = function () {

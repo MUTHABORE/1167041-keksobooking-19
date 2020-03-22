@@ -36,17 +36,68 @@
   var createPinCards = function (pinCards) {
     var similarCard = templateCard.cloneNode(true);
 
-    similarCard.querySelector('.popup__avatar').src = pinCards.author.avatar;
-    similarCard.querySelector('.popup__title').textContent = pinCards.offer.title;
-    similarCard.querySelector('.popup__text--address').textContent = pinCards.offer.address;
-    similarCard.querySelector('.popup__text--price').textContent = (pinCards.offer.price) + '/ночь';
-    similarCard.querySelector('.popup__type').textContent = TypeTranslate[pinCards.offer.type];
-    similarCard.querySelector('.popup__text--capacity').textContent = (pinCards.offer.rooms) + ' комнаты для ' + (pinCards.offer.guests);
-    similarCard.querySelector('.popup__text--time').textContent = 'Заезд после ' + (pinCards.offer.checkin) + ', выезд до ' + (pinCards.offer.checkout);
-    similarCard.querySelector('.popup__description').textContent = pinCards.offer.description;
+    similarCard.querySelector('.popup__avatar').src = '';
+    if (pinCards.author.avatar) {
+      similarCard.querySelector('.popup__avatar').src = pinCards.author.avatar;
+    } else {
+      similarCard.querySelector('.popup__avatar').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__title').innerHTML = '';
+    if (pinCards.offer.title) {
+      similarCard.querySelector('.popup__title').textContent = pinCards.offer.title;
+    } else {
+      similarCard.querySelector('.popup__title').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__text--address').innerHTML = '';
+    if (pinCards.offer.address) {
+      similarCard.querySelector('.popup__text--address').textContent = pinCards.offer.address;
+    } else {
+      similarCard.querySelector('.popup__text--address').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__text--price').innerHTML = '';
+    if (pinCards.offer.price) {
+      similarCard.querySelector('.popup__text--price').textContent = (pinCards.offer.price) + '/ночь';
+    } else {
+      similarCard.querySelector('.popup__text--price').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__type').innerHTML = '';
+    if (pinCards.offer.type) {
+      similarCard.querySelector('.popup__type').textContent = TypeTranslate[pinCards.offer.type.toUpperCase()];
+    } else {
+      similarCard.querySelector('.popup__type').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__text--capacity').innerHTML = '';
+    if (pinCards.offer.rooms && pinCards.offer.guests) {
+      similarCard.querySelector('.popup__text--capacity').textContent = (pinCards.offer.rooms) + ' комнаты для ' + (pinCards.offer.guests);
+    } else {
+      similarCard.querySelector('.popup__text--capacity').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__text--time').innerHTML = '';
+    if (pinCards.offer.checkin && pinCards.offer.checkout) {
+      similarCard.querySelector('.popup__text--time').textContent = 'Заезд после ' + (pinCards.offer.checkin) + ', выезд до ' + (pinCards.offer.checkout);
+    } else {
+      similarCard.querySelector('.popup__text--time').style.display = 'none';
+    }
+
+    similarCard.querySelector('.popup__description').innerHTML = '';
+    if (pinCards.offer.description) {
+      similarCard.querySelector('.popup__description').textContent = pinCards.offer.description;
+    } else {
+      similarCard.querySelector('.popup__description').style.display = 'none';
+    }
 
     var addFeatures = function () {
       similarCard.querySelector('.popup__features').innerHTML = '';
+
+      if (!pinCards.offer.features.length) {
+        similarCard.querySelector('.popup__features').style.display = 'none';
+      }
 
       for (var i = 0; i < pinCards.offer.features.length; i++) {
         var listItemFeatures = document.createElement('li');
@@ -58,6 +109,10 @@
 
     var addPhotos = function () {
       similarCard.querySelector('.popup__photos').innerHTML = '';
+
+      if (!pinCards.offer.photos.length) {
+        similarCard.querySelector('.popup__photos').style.display = 'none';
+      }
 
       for (var i = 0; i < pinCards.offer.photos.length; i++) {
         var imgPhotos = document.createElement('img');
