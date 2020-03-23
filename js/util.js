@@ -4,8 +4,9 @@
   var KEY_ESC = 27;
   var KEY_ENTER = 13;
   var LEFT_CLICK = 1;
-  var similarAd = document.querySelector('.map__pins');
   var MAX_SIMILAR_ADS_AMOUNT = 5;
+
+  var similarAd = document.querySelector('.map__pins');
   var correctAds = [];
 
   var getRandomInteger = function (min, max) {

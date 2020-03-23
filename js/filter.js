@@ -1,15 +1,15 @@
 'use strict';
 
 (function () {
+  var TIMEOUT = 500;
+  var lastTimeout;
+
   var mapPins = document.querySelector('.map__pins');
   var selectType = document.querySelector('#housing-type');
   var selectPrice = document.querySelector('#housing-price');
   var selectRooms = document.querySelector('#housing-rooms');
   var selectGuests = document.querySelector('#housing-guests');
   var selectFeatures = document.querySelectorAll('.map__checkbox');
-
-  var TIMEOUT = 500;
-  var lastTimeout;
 
   var PriceInstruction = {
     LOW_RANGE: 10000,

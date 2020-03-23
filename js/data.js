@@ -1,18 +1,18 @@
 'use strict';
 
 (function () {
-  var map = document.querySelector('.map');
-  var mapWidth = map.getBoundingClientRect().width;
-  var templatePin = document.querySelector('#pin').content.querySelector('.map__pin');
-  var templateCard = document.querySelector('#card').content.querySelector('.map__card');
-  var ads = [];
-
   var PIN_MIN_X = 0;
   var PIN_MAX_X = mapWidth;
   var PIN_MIN_Y = 130;
   var PIN_MAX_Y = 630;
   var PIN_CORR_X = -25;
   var PIN_CORR_Y = -70;
+
+  var map = document.querySelector('.map');
+  var mapWidth = map.getBoundingClientRect().width;
+  var templatePin = document.querySelector('#pin').content.querySelector('.map__pin');
+  var templateCard = document.querySelector('#card').content.querySelector('.map__card');
+  var ads = [];
 
   var TypeTranslate = {
     PALACE: 'Дворец',
